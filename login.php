@@ -1,5 +1,46 @@
+<?php
+session_start();
+if (!empty($_SESSION)) {
+    header('Location: index.php');
+    exit();
+}
+
+define('LOGIN','John');
+$errorMessage = '';
+
+if(!empty($_POST))
+{
+    if(!empty($_POST['loginname']))
+    {
+        if($_POST['loginname'] !== LOGIN)
+        {
+            $errorMessage = 'Mauvais login !';
+        }
+        else
+        {
+            session_start();
+            $_SESSION['login'] = LOGIN;
+            header('Location: index.php');
+            exit();
+        }
+    }
+    else
+    {
+        $errorMessage = 'Please sign in to continue';
+    }
+}
+
+?>
+
 <?php require 'inc/head.php'; ?>
+
 <div class="container" style="margin-top:40px">
+    <?php
+    if(!empty($errorMessage))
+    { ?>
+        <p><?= htmlspecialchars($errorMessage) ?></p>
+   <?php }
+    ?>
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4">
             <div class="panel panel-default">
