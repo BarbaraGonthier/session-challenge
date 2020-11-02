@@ -5,6 +5,8 @@ if(empty($_SESSION['login']))
     header('Location: /login.php');
     exit();
 }
+
+$_SESSION['cookie'] = $_GET['add_to_cart'] ?? '';
 ?>
 <?php require 'inc/data/products.php'; ?>
 <?php require 'inc/head.php'; ?>
