@@ -1,7 +1,6 @@
 <?php require 'inc/data/products.php'; ?>
 <?php require 'inc/head.php'; ?>
 <?php
-session_start();
 if(empty($_SESSION['login']))
 {
     header('Location: /login.php');
