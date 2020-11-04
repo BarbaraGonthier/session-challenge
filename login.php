@@ -1,5 +1,5 @@
+<?php require 'inc/head.php'; ?>
 <?php
-session_start();
 if (!empty($_SESSION)) {
     header('Location: index.php');
     exit();
@@ -31,8 +31,6 @@ if(!empty($_POST))
 }
 
 ?>
-
-<?php require 'inc/head.php'; ?>
 
 <div class="container" style="margin-top:40px">
     <?php
